@@ -1,0 +1,7 @@
+{
+    "@@locale": "en",
+    "networkError": "Please check your internet connection.",
+    "serverError": "A server error occurred. Please try again later.",
+    "unknownError": "An unknown error occurred.",
+    "operationFailedError": "The operation could not be completed."
+}
