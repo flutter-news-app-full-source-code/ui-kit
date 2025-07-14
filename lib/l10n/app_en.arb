@@ -15,5 +15,29 @@
     "operationFailedError": "The operation could not be completed.",
     "@operationFailedError": {
         "description": "Error message for a generic operation failure."
+    },
+    "forbiddenError": "You do not have permission to perform this action.",
+    "@forbiddenError": {
+        "description": "Error message for 403 Forbidden errors."
+    },
+    "unauthorizedError": "Your session may have expired. Please try signing in again.",
+    "@unauthorizedError": {
+        "description": "Error message for 401 Unauthorized errors."
+    },
+    "notFoundError": "The requested item could not be found.",
+    "@notFoundError": {
+        "description": "Error message for 404 Not Found errors."
+    },
+    "authenticationError": "Authentication failed. Please check your credentials.",
+    "@authenticationError": {
+        "description": "Error message for a generic authentication failure."
+    },
+    "badRequestError": "There was a problem with your request.",
+    "@badRequestError": {
+        "description": "Error message for a generic 400 Bad Request error."
+    },
+    "invalidInputError": "The information provided is invalid. Please check and try again.",
+    "@invalidInputError": {
+        "description": "Error message for a generic invalid input error."
     }
 }
