@@ -1,5 +1,6 @@
 name: ht_ui_kit
-description: ...
+description: A shared UI kit for the Headlines Toolkit Flutter applications,
+  providing reusable widgets, themes, and localization helpers.
 repository: https://github.com/headlines-toolkit/ht-ui-kit
 publish_to: none
 
