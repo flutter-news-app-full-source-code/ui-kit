@@ -1,4 +1,5 @@
-/// A Very Good Project created by Very Good CLI.
+/// A shared UI kit for the Headlines Toolkit Flutter applications, providing
+/// reusable widgets, themes, and localization helpers.
 library;
 
 export 'l10n/app_localizations.dart';
