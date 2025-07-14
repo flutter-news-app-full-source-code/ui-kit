@@ -57,5 +57,61 @@ void main() {
           'Your session may have expired. Please try signing in again.',
       UnknownException: 'An unknown error occurred.',
     };
+
+    // A map of exception types to their expected Arabic messages.
+    const expectedMessagesAr = {
+      AuthenticationException:
+          'فشلت المصادقة. يرجى التحقق من بيانات الاعتماد الخاصة بك.',
+      BadRequestException: 'كانت هناك مشكلة في طلبك.',
+      ForbiddenException: 'ليس لديك الإذن لتنفيذ هذا الإجراء.',
+      InvalidInputException:
+          'المعلومات المقدمة غير صالحة. يرجى التحقق والمحاولة مرة أخرى.',
+      NetworkException: 'يرجى التحقق من اتصالك بالإنترنت.',
+      NotFoundException: 'تعذر العثور على العنصر المطلوب.',
+      OperationFailedException: 'تعذرت إتمام العملية.',
+      ServerException: 'حدث خطأ في الخادم. يرجى المحاولة مرة أخرى لاحقًا.',
+      UnauthorizedException:
+          'قد تكون جلستك قد انتهت. يرجى محاولة تسجيل الدخول مرة أخرى.',
+      UnknownException: 'حدث خطأ غير معروف.',
+    };
+
+    group('English Localizations (en)', () {
+      for (final exception in exceptions) {
+        testWidgets(
+            'should return correct English message for ${exception.runtimeType}',
+            (tester) async {
+          await tester.pumpApp(
+            Builder(
+              builder: (context) {
+                final message = exception.toFriendlyMessage(context);
+                final expected = expectedMessagesEn[exception.runtimeType];
+                expect(message, equals(expected));
+                return const SizedBox();
+              },
+            ),
+          );
+        });
+      }
+    });
+
+    group('Arabic Localizations (ar)', () {
+      for (final exception in exceptions) {
+        testWidgets(
+            'should return correct Arabic message for ${exception.runtimeType}',
+            (tester) async {
+          await tester.pumpApp(
+            Builder(
+              builder: (context) {
+                final message = exception.toFriendlyMessage(context);
+                final expected = expectedMessagesAr[exception.runtimeType];
+                expect(message, equals(expected));
+                return const SizedBox();
+              },
+            ),
+            locale: const Locale('ar'),
+          );
+        });
+      }
+    });
   });
 }
