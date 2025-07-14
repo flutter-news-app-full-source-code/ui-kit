@@ -6,32 +6,26 @@ import 'package:ht_ui_kit/l10n/app_localizations.dart';
 extension HtHttpExceptionL10n on HtHttpException {
   /// Returns a user-friendly message for the exception.
   ///
-  /// This method intelligently decides whether to show the specific message
-  /// from the server (which is often best for user-facing validation errors)
-  /// or a generic, localized message for broader issues like network or
-  /// server failures.
+  /// This method returns a generic, localized message for every exception
+  /// type, ensuring a consistent and user-friendly error display.
   ///
   /// Requires a [BuildContext] to access the localized strings provided by the
   /// generated [HtUiKitLocalizations] class.
   String toFriendlyMessage(BuildContext context) {
     final l10n = HtUiKitLocalizations.of(context)!;
 
+    // This switch maps every known HtHttpException subtype to a
+    // corresponding localized string.
     return switch (this) {
-      // For these exceptions, the message from the server is specific
-      // and intended for the user.
-      final AuthenticationException e => e.message,
-      final BadRequestException e => e.message,
-      final ForbiddenException e => e.message,
-      final InvalidInputException e => e.message,
-      final NotFoundException e => e.message,
-      final UnauthorizedException e => e.message,
-
-      // For these exceptions, a generic, localized message is better.
+      AuthenticationException() => l10n.authenticationError,
+      BadRequestException() => l10n.badRequestError,
+      ForbiddenException() => l10n.forbiddenError,
+      InvalidInputException() => l10n.invalidInputError,
+      NotFoundException() => l10n.notFoundError,
+      UnauthorizedException() => l10n.unauthorizedError,
       NetworkException() => l10n.networkError,
       ServerException() => l10n.serverError,
       OperationFailedException() => l10n.operationFailedError,
-
-      // The UnknownException is a catch-all, so a generic message is best.
       UnknownException() => l10n.unknownError,
 
       // Default case to ensure any future exception types are handled.
