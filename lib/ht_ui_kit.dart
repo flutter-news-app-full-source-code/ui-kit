@@ -3,4 +3,4 @@
 library;
 
 export 'l10n/app_localizations.dart';
-export 'src/helpers/exception_l10n_helper.dart';
+export 'src/extensions/exception_l10n_helper.dart';
