@@ -15,5 +15,17 @@
     "operationFailedError": "تعذرت إتمام العملية.",
     "@operationFailedError": {
         "description": "رسالة خطأ لفشل عملية عامة."
+  },
+  "forbiddenError": "ليس لديك الإذن لتنفيذ هذا الإجراء.",
+  "@forbiddenError": {
+    "description": "رسالة خطأ لأخطاء 403 Forbidden."
+  },
+  "unauthorizedError": "قد تكون جلستك قد انتهت. يرجى محاولة تسجيل الدخول مرة أخرى.",
+  "@unauthorizedError": {
+    "description": "رسالة خطأ لأخطاء 401 Unauthorized."
+  },
+  "notFoundError": "تعذر العثور على العنصر المطلوب.",
+  "@notFoundError": {
+    "description": "رسالة خطأ لأخطاء 404 Not Found."
     }
 }
