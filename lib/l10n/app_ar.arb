@@ -1,0 +1,19 @@
+{
+    "@@locale": "ar",
+    "networkError": "يرجى التحقق من اتصالك بالإنترنت.",
+    "@networkError": {
+        "description": "رسالة خطأ تظهر عند وجود مشكلة في الاتصال بالشبكة."
+    },
+    "serverError": "حدث خطأ في الخادم. يرجى المحاولة مرة أخرى لاحقًا.",
+    "@serverError": {
+        "description": "رسالة خطأ لأخطاء الخادم 5xx."
+    },
+    "unknownError": "حدث خطأ غير معروف.",
+    "@unknownError": {
+        "description": "رسالة خطأ احتياطية عامة."
+    },
+    "operationFailedError": "تعذرت إتمام العملية.",
+    "@operationFailedError": {
+        "description": "رسالة خطأ لفشل عملية عامة."
+    }
+}

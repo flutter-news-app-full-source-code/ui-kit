@@ -1,7 +1,19 @@
 {
     "@@locale": "en",
     "networkError": "Please check your internet connection.",
+    "@networkError": {
+        "description": "Error message shown when there is a network connectivity issue."
+    },
     "serverError": "A server error occurred. Please try again later.",
+    "@serverError": {
+        "description": "Error message for 5xx server errors."
+    },
     "unknownError": "An unknown error occurred.",
-    "operationFailedError": "The operation could not be completed."
+    "@unknownError": {
+        "description": "A generic fallback error message."
+    },
+    "operationFailedError": "The operation could not be completed.",
+    "@operationFailedError": {
+        "description": "Error message for a generic operation failure."
+    }
 }
