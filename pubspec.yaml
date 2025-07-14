@@ -9,6 +9,8 @@ environment:
 dependencies: 
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   ht_shared:
     git:
       url: https://github.com/headlines-toolkit/ht-shared.git

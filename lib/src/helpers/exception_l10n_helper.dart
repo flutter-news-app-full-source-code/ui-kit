@@ -1,23 +1,41 @@
+import 'package:flutter/widgets.dart';
 import 'package:ht_shared/ht_shared.dart';
+import 'package:ht_ui_kit/src/l10n/ht_ui_localizations.dart';
 
 /// An extension to provide a user-friendly message from an [HtHttpException].
 extension HtHttpExceptionL10n on HtHttpException {
   /// Returns a user-friendly message for the exception.
   ///
-  /// For most exceptions, this is the specific message provided by the server
-  /// or a client-side check. For generic exceptions like [NetworkException],
-  /// it returns a standard English message.
+  /// This method intelligently decides whether to show the specific message
+  /// from the server (which is often best for user-facing validation errors)
+  /// or a generic, localized message for broader issues like network or
+  /// server failures.
   ///
-  /// The consuming application is responsible for any further localization
-  /// of these generic messages if required.
-  String toFriendlyMessage() {
-    if (this is NetworkException) {
-      // This is a generic, non-localized message.
-      // The consumer app should ideally handle this case specifically
-      // to provide a localized string.
-      return 'Please check your internet connection and try again.';
+  /// Requires a [BuildContext] to access the localized strings provided by
+  /// [HtUiLocalizations].
+  String toFriendlyMessage(BuildContext context) {
+    final l10n = HtUiLocalizations.of(context);
+
+    return switch (this) {
+      // For these exceptions, the message from the server is specific
+      // and intended for the user.
+      final AuthenticationException e => e.message,
+      final BadRequestException e => e.message,
+      final ForbiddenException e => e.message,
+      final InvalidInputException e => e.message,
+      final NotFoundException e => e.message,
+      final UnauthorizedException e => e.message,
+
+      // For these exceptions, a generic, localized message is better.
+      NetworkException() => l10n.networkError,
+      ServerException() => l10n.serverError,
+      OperationFailedException() => l10n.operationFailedError,
+
+      // The UnknownException is a catch-all, so a generic message is best.
+      UnknownException() => l10n.unknownError,
+
+      // Default case to ensure any future exception types are handled.
+      _ => l10n.unknownError,
     }
-    // For all other exceptions, the provided `message` is the most specific.
-    return message;
   }
 }
