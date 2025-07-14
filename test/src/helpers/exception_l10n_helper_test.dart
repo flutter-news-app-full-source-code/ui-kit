@@ -78,39 +78,41 @@ void main() {
     group('English Localizations (en)', () {
       for (final exception in exceptions) {
         testWidgets(
-            'should return correct English message for ${exception.runtimeType}',
-            (tester) async {
-          await tester.pumpApp(
-            Builder(
-              builder: (context) {
-                final message = exception.toFriendlyMessage(context);
-                final expected = expectedMessagesEn[exception.runtimeType];
-                expect(message, equals(expected));
-                return const SizedBox();
-              },
-            ),
-          );
-        });
+          'should return correct English message for ${exception.runtimeType}',
+          (tester) async {
+            await tester.pumpApp(
+              Builder(
+                builder: (context) {
+                  final message = exception.toFriendlyMessage(context);
+                  final expected = expectedMessagesEn[exception.runtimeType];
+                  expect(message, equals(expected));
+                  return const SizedBox();
+                },
+              ),
+            );
+          },
+        );
       }
     });
 
     group('Arabic Localizations (ar)', () {
       for (final exception in exceptions) {
         testWidgets(
-            'should return correct Arabic message for ${exception.runtimeType}',
-            (tester) async {
-          await tester.pumpApp(
-            Builder(
-              builder: (context) {
-                final message = exception.toFriendlyMessage(context);
-                final expected = expectedMessagesAr[exception.runtimeType];
-                expect(message, equals(expected));
-                return const SizedBox();
-              },
-            ),
-            locale: const Locale('ar'),
-          );
-        });
+          'should return correct Arabic message for ${exception.runtimeType}',
+          (tester) async {
+            await tester.pumpApp(
+              Builder(
+                builder: (context) {
+                  final message = exception.toFriendlyMessage(context);
+                  final expected = expectedMessagesAr[exception.runtimeType];
+                  expect(message, equals(expected));
+                  return const SizedBox();
+                },
+              ),
+              locale: const Locale('ar'),
+            );
+          },
+        );
       }
     });
   });
