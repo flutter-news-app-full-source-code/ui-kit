@@ -124,6 +124,42 @@ abstract class HtUiKitLocalizations {
   /// In en, this message translates to:
   /// **'The operation could not be completed.'**
   String get operationFailedError;
+
+  /// Error message for 403 Forbidden errors.
+  ///
+  /// In en, this message translates to:
+  /// **'You do not have permission to perform this action.'**
+  String get forbiddenError;
+
+  /// Error message for 401 Unauthorized errors.
+  ///
+  /// In en, this message translates to:
+  /// **'Your session may have expired. Please try signing in again.'**
+  String get unauthorizedError;
+
+  /// Error message for 404 Not Found errors.
+  ///
+  /// In en, this message translates to:
+  /// **'The requested item could not be found.'**
+  String get notFoundError;
+
+  /// Error message for a generic authentication failure.
+  ///
+  /// In en, this message translates to:
+  /// **'Authentication failed. Please check your credentials.'**
+  String get authenticationError;
+
+  /// Error message for a generic 400 Bad Request error.
+  ///
+  /// In en, this message translates to:
+  /// **'There was a problem with your request.'**
+  String get badRequestError;
+
+  /// Error message for a generic invalid input error.
+  ///
+  /// In en, this message translates to:
+  /// **'The information provided is invalid. Please check and try again.'**
+  String get invalidInputError;
 }
 
 class _HtUiKitLocalizationsDelegate
