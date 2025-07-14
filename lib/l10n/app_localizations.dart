@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'app_localizations_ar.dart';
 import 'app_localizations_en.dart';
 
 // ignore_for_file: type=lint
@@ -95,27 +96,30 @@ abstract class HtUiKitLocalizations {
       ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[Locale('en')];
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('ar'),
+    Locale('en'),
+  ];
 
-  /// No description provided for @networkError.
+  /// Error message shown when there is a network connectivity issue.
   ///
   /// In en, this message translates to:
   /// **'Please check your internet connection.'**
   String get networkError;
 
-  /// No description provided for @serverError.
+  /// Error message for 5xx server errors.
   ///
   /// In en, this message translates to:
   /// **'A server error occurred. Please try again later.'**
   String get serverError;
 
-  /// No description provided for @unknownError.
+  /// A generic fallback error message.
   ///
   /// In en, this message translates to:
   /// **'An unknown error occurred.'**
   String get unknownError;
 
-  /// No description provided for @operationFailedError.
+  /// Error message for a generic operation failure.
   ///
   /// In en, this message translates to:
   /// **'The operation could not be completed.'**
@@ -135,7 +139,7 @@ class _HtUiKitLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['en'].contains(locale.languageCode);
+      <String>['ar', 'en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_HtUiKitLocalizationsDelegate old) => false;
@@ -144,6 +148,8 @@ class _HtUiKitLocalizationsDelegate
 HtUiKitLocalizations lookupHtUiKitLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'ar':
+      return HtUiKitLocalizationsAr();
     case 'en':
       return HtUiKitLocalizationsEn();
   }

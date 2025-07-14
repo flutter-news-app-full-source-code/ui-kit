@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:ht_shared/ht_shared.dart';
-import 'package:ht_ui_kit/src/l10n/ht_ui_localizations.dart';
+import 'package:ht_ui_kit/l10n/app_localizations.dart';
 
 /// An extension to provide a user-friendly message from an [HtHttpException].
 extension HtHttpExceptionL10n on HtHttpException {
@@ -11,10 +11,10 @@ extension HtHttpExceptionL10n on HtHttpException {
   /// or a generic, localized message for broader issues like network or
   /// server failures.
   ///
-  /// Requires a [BuildContext] to access the localized strings provided by
-  /// [HtUiLocalizations].
+  /// Requires a [BuildContext] to access the localized strings provided by the
+  /// generated [HtUiKitLocalizations] class.
   String toFriendlyMessage(BuildContext context) {
-    final l10n = HtUiLocalizations.of(context);
+    final l10n = HtUiKitLocalizations.of(context)!;
 
     return switch (this) {
       // For these exceptions, the message from the server is specific
@@ -36,6 +36,6 @@ extension HtHttpExceptionL10n on HtHttpException {
 
       // Default case to ensure any future exception types are handled.
       _ => l10n.unknownError,
-    }
+    };
   }
 }
