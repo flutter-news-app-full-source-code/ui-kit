@@ -13,7 +13,8 @@ Add this package to your `pubspec.yaml`:
 ```yaml
 dependencies:
   ht_ui_kit:
-    # Add your path or git dependency here
+    git:
+      url: https://github.com/headlines-toolkit/ht-ui-kit.git
 ```
 
 ## Features
