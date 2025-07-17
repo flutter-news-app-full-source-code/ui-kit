@@ -124,7 +124,9 @@ TextTheme Function([TextTheme?]) _getGoogleFontTextTheme(String? fontFamily) {
   debugPrint('[_getGoogleFontTextTheme] Received fontFamily: $fontFamily');
   switch (fontFamily) {
     case 'Roboto':
-      debugPrint('[_getGoogleFontTextTheme] Returning GoogleFonts.robotoTextTheme');
+      debugPrint(
+        '[_getGoogleFontTextTheme] Returning GoogleFonts.robotoTextTheme',
+      );
       return GoogleFonts.robotoTextTheme;
     case 'OpenSans':
       debugPrint(
@@ -132,7 +134,9 @@ TextTheme Function([TextTheme?]) _getGoogleFontTextTheme(String? fontFamily) {
       );
       return GoogleFonts.openSansTextTheme;
     case 'Lato':
-      debugPrint('[_getGoogleFontTextTheme] Returning GoogleFonts.latoTextTheme');
+      debugPrint(
+        '[_getGoogleFontTextTheme] Returning GoogleFonts.latoTextTheme',
+      );
       return GoogleFonts.latoTextTheme;
     case 'Montserrat':
       debugPrint(
