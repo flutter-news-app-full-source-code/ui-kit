@@ -17,6 +17,7 @@ dependencies:
   ht_shared:
     git:
       url: https://github.com/headlines-toolkit/ht-shared.git
+  intl: ^0.20.2
   timeago: ^3.7.1
 
 dev_dependencies:
