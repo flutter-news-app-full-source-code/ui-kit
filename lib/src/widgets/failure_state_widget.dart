@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ht_shared/ht_shared.dart';
 import 'package:ht_ui_kit/ht_ui_kit.dart';
-import 'package:ht_ui_kit/l10n/app_localizations.dart';
 
 /// A widget to display an error message and an optional retry button.
 class FailureStateWidget extends StatelessWidget {
@@ -46,7 +45,7 @@ class FailureStateWidget extends StatelessWidget {
           // Show the retry button only if onRetry is provided
           if (onRetry != null)
             Padding(
-              padding: const EdgeInsets.only(top: 16),
+              padding: const EdgeInsets.only(top: AppSpacing.lg),
               child: ElevatedButton(
                 onPressed: onRetry,
                 child: Text(retryButtonText ?? l10n.retryButtonText),

@@ -40,4 +40,7 @@ class HtUiKitLocalizationsAr extends HtUiKitLocalizations {
   @override
   String get invalidInputError =>
       'المعلومات المقدمة غير صالحة. يرجى التحقق والمحاولة مرة أخرى.';
+
+  @override
+  String get retryButtonText => 'إعادة المحاولة';
 }

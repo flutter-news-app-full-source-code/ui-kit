@@ -41,4 +41,7 @@ class HtUiKitLocalizationsEn extends HtUiKitLocalizations {
   @override
   String get invalidInputError =>
       'The information provided is invalid. Please check and try again.';
+
+  @override
+  String get retryButtonText => 'Retry';
 }

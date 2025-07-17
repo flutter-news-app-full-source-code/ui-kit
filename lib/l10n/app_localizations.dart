@@ -160,6 +160,12 @@ abstract class HtUiKitLocalizations {
   /// In en, this message translates to:
   /// **'The information provided is invalid. Please check and try again.'**
   String get invalidInputError;
+
+  /// Text for the retry button on error widgets.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retryButtonText;
 }
 
 class _HtUiKitLocalizationsDelegate
