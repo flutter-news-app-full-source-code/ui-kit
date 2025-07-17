@@ -168,6 +168,12 @@ abstract class HtUiKitLocalizations {
   String get retryButtonText;
 }
 
+/// A convenient extension to access the localizations from the build context.
+extension HtUiKitLocalizationsX on BuildContext {
+  /// The HtUiKit localizations.
+  HtUiKitLocalizations get l10n => HtUiKitLocalizations.of(this)!;
+}
+
 class _HtUiKitLocalizationsDelegate
     extends LocalizationsDelegate<HtUiKitLocalizations> {
   const _HtUiKitLocalizationsDelegate();
