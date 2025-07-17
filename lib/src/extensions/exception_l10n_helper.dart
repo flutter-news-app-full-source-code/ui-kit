@@ -12,7 +12,7 @@ extension HtHttpExceptionL10n on HtHttpException {
   /// Requires a [BuildContext] to access the localized strings provided by the
   /// generated [HtUiKitLocalizations] class.
   String toFriendlyMessage(BuildContext context) {
-    final l10n = HtUiKitLocalizations.of(context)!;
+    final l10n = context.l10n;
 
     // This switch maps every known HtHttpException subtype to a
     // corresponding localized string.
