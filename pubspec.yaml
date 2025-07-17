@@ -8,13 +8,16 @@ environment:
   sdk: ^3.8.0
 
 dependencies: 
+  flex_color_scheme: ^8.2.0
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  google_fonts: ^6.2.1
   ht_shared:
     git:
       url: https://github.com/headlines-toolkit/ht-shared.git
+  timeago: ^3.7.1
 
 dev_dependencies:
   flutter_test:
