@@ -17,7 +17,8 @@ abstract final class DateFormatter {
     return timeago.format(dateTime, locale: locale);
   }
 
-  /// Formats the given [dateTime] into a short date string (e.g., "Jul 1, 2025").
+  /// Formats the given [dateTime] into a short date 
+  /// string (e.g., "Jul 1, 2025").
   ///
   /// Returns an empty string if [dateTime] is null.
   static String formatDate(DateTime? dateTime) {

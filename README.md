@@ -1,93 +1,94 @@
 # ht_ui_kit
 
-![coverage: 0%](https://img.shields.io/badge/coverage-94-green)
+![coverage: percentage](https://img.shields.io/badge/coverage-XX-green)
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 [![License: PolyForm Free Trial](https://img.shields.io/badge/License-PolyForm%20Free%20Trial-blue)](https://polyformproject.org/licenses/free-trial/1.0.0)
 
-A shared UI kit for the Headlines Toolkit Flutter applications, providing reusable widgets, themes, and localization helpers.
+A shared Flutter UI kit package providing a consistent set of widgets, themes, constants, and utilities for building applications. This package ensures a cohesive look and feel across different parts of the system.
 
 ## Getting Started
 
-To use this package, add `ht_ui_kit` as a dependency in your `pubspec.yaml` file. Since this is a private package, you'll need to reference it via its Git repository.
+Add this package to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
   ht_ui_kit:
-    git:
-      url: https://github.com/headlines-toolkit/ht-ui-kit.git
+    # Add your path or git dependency here
 ```
 
 ## Features
 
-- **Localized Exception Handling:** A helper extension on `HtHttpException` to provide user-friendly, localized error messages.
-- **Shared Localizations:** Provides localizations for common strings (currently error messages) in multiple languages (English and Arabic).
+*   **State Widgets:** A collection of pre-built widgets for common UI states:
+    *   `InitialStateWidget`: For screens before user interaction.
+    *   `LoadingStateWidget`: For displaying progress during data fetching.
+    *   `FailureStateWidget`: For showing user-friendly error messages with a retry option.
+*   **Dynamic Theming:** Built with `flex_color_scheme`, allowing for dynamic, customizable, and consistent light/dark themes across the app based on user settings.
+*   **Localization Helpers:**
+    *   An extension on `HtHttpException` to provide user-friendly, localized error messages.
+    *   Custom `timeago` messages for concise relative time formatting.
+*   **Shared Constants:** Centralized constants for spacing (`AppSpacing`) to ensure consistent layouts.
+*   **Utilities:** Helper classes like `DateFormatter` for common date and time formatting tasks.
 
 ## Usage
 
-### 1. Integrating Localizations
+### Displaying an Error
 
-To use the localizations provided by this package, you must add its delegate to your `MaterialApp`.
+Use the `FailureStateWidget` to easily display a localized error message from a shared exception. The widget automatically handles localization.
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:ht_ui_kit/ht_ui_kit.dart'; // Import the package
-// Import your app's own localizations
-import 'package/your_app/l10n/l10n.dart';
+import 'package:ht_shared/ht_shared.dart';
+import 'package:ht_ui_kit/ht_ui_kit.dart';
 
-void main() {
-  runApp(const MyApp());
+class MyFeatureView extends StatelessWidget {
+  const MyFeatureView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FailureStateWidget(
+      exception: NetworkException(),
+      onRetry: () {
+        // Logic to retry the failed operation
+        print('Retrying...');
+      },
+    );
+  }
 }
+```
+
+### Theming
+
+This package provides `lightTheme` and `darkTheme` functions that can be dynamically configured. To use them, pass them to your `MaterialApp`'s theme properties.
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:ht_ui_kit/ht_ui_kit.dart';
+import 'package:ht_shared/ht_shared.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
+
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // ... other properties
-      localizationsDelegates: const [
-        // Add the UI Kit's delegate
-        HtUiKitLocalizations.delegate,
+    // These values would typically come from a state management solution
+    const activeScheme = FlexScheme.mandyRed;
+    const textScaleFactor = AppTextScaleFactor.medium;
+    const fontWeight = AppFontWeight.regular;
 
-        // Keep your app's delegates
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: HtUiKitLocalizations.supportedLocales,
-      // ...
+    return MaterialApp(
+      theme: lightTheme(
+        scheme: activeScheme,
+        appTextScaleFactor: textScaleFactor,
+        appFontWeight: fontWeight,
+      ),
+      // ... other properties
     );
   }
 }
 ```
 
-### 2. Displaying Friendly Error Messages
-
-Once the localizations are integrated, you can use the `toFriendlyMessage` extension method on any `HtHttpException` instance to get a localized error string. This is ideal for displaying errors in the UI.
-
-```dart
-import 'package:flutter/material.dart';
-import 'package:ht_shared/ht_shared.dart';
-import 'package:ht_ui_kit/ht_ui_kit.dart'; // Provides the extension
-
-class ErrorDisplayWidget extends StatelessWidget {
-  const ErrorDisplayWidget({required this.exception, super.key});
-
-  final HtHttpException exception;
-
-  @override
-  Widget build(BuildContext context) {
-    // The toFriendlyMessage method requires the BuildContext
-    // to find the correct localizations.
-    final friendlyMessage = exception.toFriendlyMessage(context);
-
-    return Center(child: Text(friendlyMessage));
-  }
-}
-```
-
 ## License
-
 This package is licensed under the [PolyForm Free Trial](LICENSE). Please review the terms before use.
