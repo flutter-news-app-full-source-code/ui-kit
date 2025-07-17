@@ -36,7 +36,7 @@ TextTheme _customizeTextTheme(
   required AppTextScaleFactor appTextScaleFactor,
   required AppFontWeight appFontWeight,
 }) {
-  print(
+  debugPrint(
     '[_customizeTextTheme] Received appFontWeight: $appFontWeight, appTextScaleFactor: $appTextScaleFactor',
   );
   // Define font size factors
@@ -66,7 +66,7 @@ TextTheme _customizeTextTheme(
     case AppFontWeight.bold:
       selectedFontWeight = FontWeight.w700;
   }
-  print(
+  debugPrint(
     '[_customizeTextTheme] Mapped to selectedFontWeight: $selectedFontWeight',
   );
 
@@ -121,33 +121,33 @@ TextTheme _customizeTextTheme(
 // based on the provided font family name.
 // Corrected return type to match GoogleFonts functions (positional optional)
 TextTheme Function([TextTheme?]) _getGoogleFontTextTheme(String? fontFamily) {
-  print('[_getGoogleFontTextTheme] Received fontFamily: $fontFamily');
+  debugPrint('[_getGoogleFontTextTheme] Received fontFamily: $fontFamily');
   switch (fontFamily) {
     case 'Roboto':
-      print('[_getGoogleFontTextTheme] Returning GoogleFonts.robotoTextTheme');
+      debugPrint('[_getGoogleFontTextTheme] Returning GoogleFonts.robotoTextTheme');
       return GoogleFonts.robotoTextTheme;
     case 'OpenSans':
-      print(
+      debugPrint(
         '[_getGoogleFontTextTheme] Returning GoogleFonts.openSansTextTheme',
       );
       return GoogleFonts.openSansTextTheme;
     case 'Lato':
-      print('[_getGoogleFontTextTheme] Returning GoogleFonts.latoTextTheme');
+      debugPrint('[_getGoogleFontTextTheme] Returning GoogleFonts.latoTextTheme');
       return GoogleFonts.latoTextTheme;
     case 'Montserrat':
-      print(
+      debugPrint(
         '[_getGoogleFontTextTheme] Returning GoogleFonts.montserratTextTheme',
       );
       return GoogleFonts.montserratTextTheme;
     case 'Merriweather':
-      print(
+      debugPrint(
         '[_getGoogleFontTextTheme] Returning GoogleFonts.merriweatherTextTheme',
       );
       return GoogleFonts.merriweatherTextTheme;
     case 'SystemDefault':
     case null:
     default:
-      print(
+      debugPrint(
         '[_getGoogleFontTextTheme] Defaulting to GoogleFonts.notoSansTextTheme for input: $fontFamily',
       );
       return GoogleFonts.notoSansTextTheme;
@@ -163,7 +163,7 @@ ThemeData lightTheme({
   required AppFontWeight appFontWeight,
   String? fontFamily,
 }) {
-  print(
+  debugPrint(
     '[AppTheme.lightTheme] Received scheme: $scheme, appTextScaleFactor: $appTextScaleFactor, appFontWeight: $appFontWeight, fontFamily: $fontFamily',
   );
   final textThemeGetter = _getGoogleFontTextTheme(fontFamily);
@@ -190,7 +190,7 @@ ThemeData darkTheme({
   required AppFontWeight appFontWeight,
   String? fontFamily,
 }) {
-  print(
+  debugPrint(
     '[AppTheme.darkTheme] Received scheme: $scheme, appTextScaleFactor: $appTextScaleFactor, appFontWeight: $appFontWeight, fontFamily: $fontFamily',
   );
   final textThemeGetter = _getGoogleFontTextTheme(fontFamily);
