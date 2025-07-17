@@ -1,6 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:ht_ui_kit/ht_ui_kit.dart';
 
+/// A widget to display a loading state, typically when fetching data.
+///
+/// It shows an icon, a headline, a subheadline, and a circular progress
+/// indicator to inform the user that an operation is in progress.
+///
+/// ## Example
+///
+/// ```dart
+/// const LoadingStateWidget(
+///   icon: Icons.downloading,
+///   headline: 'Loading Articles',
+///   subheadline: 'Please wait a moment...',
+/// )
+/// ```
 class LoadingStateWidget extends StatelessWidget {
+  /// Creates a [LoadingStateWidget].
   const LoadingStateWidget({
     required this.icon,
     required this.headline,
@@ -8,23 +24,42 @@ class LoadingStateWidget extends StatelessWidget {
     super.key,
   });
 
+  /// The icon to display at the top of the widget.
   final IconData icon;
+
+  /// The main headline text.
   final String headline;
+
+  /// The supporting subheadline text.
   final String subheadline;
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 64),
-          const SizedBox(height: 16),
-          Text(headline, style: const TextStyle(fontSize: 24)),
-          Text(subheadline),
-          const SizedBox(height: 16),
+          Icon(
+            icon,
+            size: 64,
+            color: theme.colorScheme.secondary,
+          ),
+          const SizedBox(height: AppSpacing.lg),
+          Text(
+            headline,
+            style: theme.textTheme.headlineMedium,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          Text(
+            subheadline,
+            style: theme.textTheme.bodyLarge,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: AppSpacing.lg),
           CircularProgressIndicator(
-            color: Theme.of(context).colorScheme.secondary,
+            color: theme.colorScheme.secondary,
           ),
         ],
       ),
