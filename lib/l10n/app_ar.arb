@@ -39,5 +39,9 @@
     "invalidInputError": "المعلومات المقدمة غير صالحة. يرجى التحقق والمحاولة مرة أخرى.",
     "@invalidInputError": {
         "description": "رسالة خطأ لخطأ إدخال غير صالح عام."
+    },
+    "retryButtonText": "إعادة المحاولة",
+    "@retryButtonText": {
+        "description": "نص زر إعادة المحاولة في واجهات عرض الأخطاء."
     }
 }

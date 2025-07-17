@@ -39,5 +39,9 @@
     "invalidInputError": "The information provided is invalid. Please check and try again.",
     "@invalidInputError": {
         "description": "Error message for a generic invalid input error."
+    },
+    "retryButtonText": "Retry",
+    "@retryButtonText": {
+        "description": "Text for the retry button on error widgets."
     }
 }
