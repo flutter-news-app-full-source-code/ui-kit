@@ -2,3 +2,8 @@ arb-dir: lib/l10n
 template-arb-file: app_en.arb
 output-localization-file: app_localizations.dart
 output-class: UiKitLocalizations
+synthetic-package: false 
+# synthetic-package option is important for packages that provide their 
+# own localizations, as it prevents the flutter gen-l10n command from 
+# generating a synthetic package that can conflict with the consuming 
+#application's localizations.

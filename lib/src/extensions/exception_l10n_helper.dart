@@ -1,6 +1,6 @@
 import 'package:core/core.dart';
 import 'package:flutter/widgets.dart';
-import 'package:ui_kit/l10n/app_localizations.dart';
+import 'package:ui_kit/src/extensions/l10n_helper.dart';
 
 /// An extension to provide a user-friendly message from an [HttpException].
 extension HttpExceptionL10n on HttpException {
@@ -10,7 +10,7 @@ extension HttpExceptionL10n on HttpException {
   /// type, ensuring a consistent and user-friendly error display.
   ///
   /// Requires a [BuildContext] to access the localized strings provided by the
-  /// generated [UiKitLocalizations] class.
+  /// generated 'UiKitLocalizations' class.
   String toFriendlyMessage(BuildContext context) {
     final l10n = context.l10n;
 

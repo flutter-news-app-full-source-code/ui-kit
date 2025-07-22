@@ -1,4 +1,4 @@
-/// A shared UI kit, providing reusable widgets, themes, 
+/// A shared UI kit, providing reusable widgets, themes,
 /// and localization helpers.
 library;
 
