@@ -1,5 +1,5 @@
-/// A shared UI kit for the Headlines Toolkit Flutter applications, providing
-/// reusable widgets, themes, and localization helpers.
+/// A shared UI kit, providing reusable widgets, themes, 
+/// and localization helpers.
 library;
 
 export 'l10n/app_localizations.dart';

@@ -1,23 +1,20 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ht_shared/ht_shared.dart';
-import 'package:ht_ui_kit/ht_ui_kit.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 extension PumpApp on WidgetTester {
-  Future<void> pumpApp(
-    Widget widget, {
-    Locale locale = const Locale('en'),
-  }) {
+  Future<void> pumpApp(Widget widget, {Locale locale = const Locale('en')}) {
     return pumpWidget(
       MaterialApp(
         localizationsDelegates: const [
-          HtUiKitLocalizations.delegate,
+          UiKitLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        supportedLocales: HtUiKitLocalizations.supportedLocales,
+        supportedLocales: UiKitLocalizations.supportedLocales,
         locale: locale,
         home: widget,
       ),
@@ -26,9 +23,9 @@ extension PumpApp on WidgetTester {
 }
 
 void main() {
-  group('HtHttpExceptionL10n', () {
+  group('HttpExceptionL10n', () {
     // A list of all concrete exception types to be tested.
-    final exceptions = <HtHttpException>[
+    final exceptions = <HttpException>[
       const AuthenticationException(''),
       const BadRequestException(''),
       const ForbiddenException(''),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ht_ui_kit/ht_ui_kit.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 /// A widget to display an initial state, typically when a feature has not
 /// yet been interacted with or contains no data.
@@ -40,11 +40,7 @@ class InitialStateWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            icon,
-            size: 64,
-            color: theme.colorScheme.secondary,
-          ),
+          Icon(icon, size: 64, color: theme.colorScheme.secondary),
           const SizedBox(height: AppSpacing.lg),
           Text(
             headline,

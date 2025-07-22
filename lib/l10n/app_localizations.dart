@@ -10,10 +10,10 @@ import 'app_localizations_en.dart';
 
 // ignore_for_file: type=lint
 
-/// Callers can lookup localized strings with an instance of HtUiKitLocalizations
-/// returned by `HtUiKitLocalizations.of(context)`.
+/// Callers can lookup localized strings with an instance of UiKitLocalizations
+/// returned by `UiKitLocalizations.of(context)`.
 ///
-/// Applications need to include `HtUiKitLocalizations.delegate()` in their app's
+/// Applications need to include `UiKitLocalizations.delegate()` in their app's
 /// `localizationDelegates` list, and the locales they support in the app's
 /// `supportedLocales` list. For example:
 ///
@@ -21,8 +21,8 @@ import 'app_localizations_en.dart';
 /// import 'l10n/app_localizations.dart';
 ///
 /// return MaterialApp(
-///   localizationsDelegates: HtUiKitLocalizations.localizationsDelegates,
-///   supportedLocales: HtUiKitLocalizations.supportedLocales,
+///   localizationsDelegates: UiKitLocalizations.localizationsDelegates,
+///   supportedLocales: UiKitLocalizations.supportedLocales,
 ///   home: MyApplicationHome(),
 /// );
 /// ```
@@ -59,23 +59,20 @@ import 'app_localizations_en.dart';
 /// Select and expand the newly-created Localizations item then, for each
 /// locale your application supports, add a new item and select the locale
 /// you wish to add from the pop-up menu in the Value field. This list should
-/// be consistent with the languages listed in the HtUiKitLocalizations.supportedLocales
+/// be consistent with the languages listed in the UiKitLocalizations.supportedLocales
 /// property.
-abstract class HtUiKitLocalizations {
-  HtUiKitLocalizations(String locale)
+abstract class UiKitLocalizations {
+  UiKitLocalizations(String locale)
     : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
-  static HtUiKitLocalizations? of(BuildContext context) {
-    return Localizations.of<HtUiKitLocalizations>(
-      context,
-      HtUiKitLocalizations,
-    );
+  static UiKitLocalizations? of(BuildContext context) {
+    return Localizations.of<UiKitLocalizations>(context, UiKitLocalizations);
   }
 
-  static const LocalizationsDelegate<HtUiKitLocalizations> delegate =
-      _HtUiKitLocalizationsDelegate();
+  static const LocalizationsDelegate<UiKitLocalizations> delegate =
+      _UiKitLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -168,20 +165,14 @@ abstract class HtUiKitLocalizations {
   String get retryButtonText;
 }
 
-/// A convenient extension to access the localizations from the build context.
-extension HtUiKitLocalizationsX on BuildContext {
-  /// The HtUiKit localizations.
-  HtUiKitLocalizations get l10n => HtUiKitLocalizations.of(this)!;
-}
-
-class _HtUiKitLocalizationsDelegate
-    extends LocalizationsDelegate<HtUiKitLocalizations> {
-  const _HtUiKitLocalizationsDelegate();
+class _UiKitLocalizationsDelegate
+    extends LocalizationsDelegate<UiKitLocalizations> {
+  const _UiKitLocalizationsDelegate();
 
   @override
-  Future<HtUiKitLocalizations> load(Locale locale) {
-    return SynchronousFuture<HtUiKitLocalizations>(
-      lookupHtUiKitLocalizations(locale),
+  Future<UiKitLocalizations> load(Locale locale) {
+    return SynchronousFuture<UiKitLocalizations>(
+      lookupUiKitLocalizations(locale),
     );
   }
 
@@ -190,20 +181,20 @@ class _HtUiKitLocalizationsDelegate
       <String>['ar', 'en'].contains(locale.languageCode);
 
   @override
-  bool shouldReload(_HtUiKitLocalizationsDelegate old) => false;
+  bool shouldReload(_UiKitLocalizationsDelegate old) => false;
 }
 
-HtUiKitLocalizations lookupHtUiKitLocalizations(Locale locale) {
+UiKitLocalizations lookupUiKitLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'ar':
-      return HtUiKitLocalizationsAr();
+      return UiKitLocalizationsAr();
     case 'en':
-      return HtUiKitLocalizationsEn();
+      return UiKitLocalizationsEn();
   }
 
   throw FlutterError(
-    'HtUiKitLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'UiKitLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
     'that was used.',

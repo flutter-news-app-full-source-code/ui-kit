@@ -1,20 +1,20 @@
+import 'package:core/core.dart';
 import 'package:flutter/widgets.dart';
-import 'package:ht_shared/ht_shared.dart';
-import 'package:ht_ui_kit/l10n/app_localizations.dart';
+import 'package:ui_kit/l10n/app_localizations.dart';
 
-/// An extension to provide a user-friendly message from an [HtHttpException].
-extension HtHttpExceptionL10n on HtHttpException {
+/// An extension to provide a user-friendly message from an [HttpException].
+extension HttpExceptionL10n on HttpException {
   /// Returns a user-friendly message for the exception.
   ///
   /// This method returns a generic, localized message for every exception
   /// type, ensuring a consistent and user-friendly error display.
   ///
   /// Requires a [BuildContext] to access the localized strings provided by the
-  /// generated [HtUiKitLocalizations] class.
+  /// generated [UiKitLocalizations] class.
   String toFriendlyMessage(BuildContext context) {
     final l10n = context.l10n;
 
-    // This switch maps every known HtHttpException subtype to a
+    // This switch maps every known HttpException subtype to a
     // corresponding localized string.
     return switch (this) {
       AuthenticationException() => l10n.authenticationError,

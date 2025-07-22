@@ -5,8 +5,8 @@ import 'app_localizations.dart';
 // ignore_for_file: type=lint
 
 /// The translations for Arabic (`ar`).
-class HtUiKitLocalizationsAr extends HtUiKitLocalizations {
-  HtUiKitLocalizationsAr([String locale = 'ar']) : super(locale);
+class UiKitLocalizationsAr extends UiKitLocalizations {
+  UiKitLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
   String get networkError => 'يرجى التحقق من اتصالك بالإنترنت.';

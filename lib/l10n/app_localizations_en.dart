@@ -5,8 +5,8 @@ import 'app_localizations.dart';
 // ignore_for_file: type=lint
 
 /// The translations for English (`en`).
-class HtUiKitLocalizationsEn extends HtUiKitLocalizations {
-  HtUiKitLocalizationsEn([String locale = 'en']) : super(locale);
+class UiKitLocalizationsEn extends UiKitLocalizations {
+  UiKitLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
   String get networkError => 'Please check your internet connection.';

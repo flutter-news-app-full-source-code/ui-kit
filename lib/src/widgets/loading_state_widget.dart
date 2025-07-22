@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ht_ui_kit/ht_ui_kit.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 /// A widget to display a loading state, typically when fetching data.
 ///
@@ -40,11 +40,7 @@ class LoadingStateWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            icon,
-            size: 64,
-            color: theme.colorScheme.secondary,
-          ),
+          Icon(icon, size: 64, color: theme.colorScheme.secondary),
           const SizedBox(height: AppSpacing.lg),
           Text(
             headline,
@@ -58,9 +54,7 @@ class LoadingStateWidget extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: AppSpacing.lg),
-          CircularProgressIndicator(
-            color: theme.colorScheme.secondary,
-          ),
+          CircularProgressIndicator(color: theme.colorScheme.secondary),
         ],
       ),
     );

@@ -1,4 +1,4 @@
-# ht_ui_kit
+# ui_kit
 
 ![coverage: percentage](https://img.shields.io/badge/coverage-23-green)
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
@@ -12,9 +12,9 @@ Add this package to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  ht_ui_kit:
+  ui_kit:
     git:
-      url: https://github.com/headlines-toolkit/ht-ui-kit.git
+      url: https://github.com/flutter-news-app-full-source-code/ui-kit.git
 ```
 
 ## Features
@@ -25,7 +25,7 @@ dependencies:
     *   `FailureStateWidget`: For showing user-friendly error messages with a retry option.
 *   **Dynamic Theming:** Built with `flex_color_scheme`, allowing for dynamic, customizable, and consistent light/dark themes across the app based on user settings.
 *   **Localization Helpers:**
-    *   An extension on `HtHttpException` to provide user-friendly, localized error messages.
+    *   An extension on `HttpException` to provide user-friendly, localized error messages.
     *   Custom `timeago` messages for concise relative time formatting.
 *   **Shared Constants:** Centralized constants for spacing (`AppSpacing`) to ensure consistent layouts.
 *   **Utilities:** Helper classes like `DateFormatter` for common date and time formatting tasks.
@@ -38,8 +38,8 @@ Use the `FailureStateWidget` to easily display a localized error message from a 
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:ht_shared/ht_shared.dart';
-import 'package:ht_ui_kit/ht_ui_kit.dart';
+import 'package:core/core.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 class MyFeatureView extends StatelessWidget {
   const MyFeatureView({super.key});
@@ -63,8 +63,8 @@ This package provides `lightTheme` and `darkTheme` functions that can be dynamic
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:ht_ui_kit/ht_ui_kit.dart';
-import 'package:ht_shared/ht_shared.dart';
+import 'package:ui_kit/ui_kit.dart';
+import 'package:core/core.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 void main() => runApp(const MyApp());
@@ -91,5 +91,9 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-## License
-This package is licensed under the [PolyForm Free Trial](LICENSE). Please review the terms before use.
+
+## 🔑 Licensing
+
+This package is source-available and licensed under the [PolyForm Free Trial 1.0.0](LICENSE). Please review the terms before use.
+
+For commercial licensing options that grant the right to build and distribute unlimited applications, please visit the main [**Flutter News App - Full Source Code Toolkit**](https://github.com/flutter-news-app-full-source-code) organization.

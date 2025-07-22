@@ -1,10 +1,10 @@
 //
 // ignore_for_file: lines_longer_than_80_chars
 
+import 'package:core/core.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ht_shared/ht_shared.dart';
 
 // --- Common Sub-theme Settings ---
 // Defines customizations for various components, shared between light/dark themes.
