@@ -1,16 +1,17 @@
 name: ui_kit
 description: A shared UI kit, providing reusable widgets, themes, and localization helpers.
 repository: https://github.com/flutter-news-app-full-source-code/ui-kit
+version: 1.0.1
 publish_to: none
 
 environment:
   sdk: ^3.9.0
 
-dependencies: 
+dependencies:
   core:
     git:
       url: https://github.com/flutter-news-app-full-source-code/core.git
-      ref: v1.2.0
+      ref: v1.3.1
   flex_color_scheme: ^8.3.0
   flutter:
     sdk: flutter
@@ -25,7 +26,6 @@ dev_dependencies:
     sdk: flutter
   mocktail: ^1.0.4
   very_good_analysis: ^9.0.0
-
 
 flutter:
   uses-material-design: true
